@@ -15,7 +15,7 @@ import SaveOutlinedIcon from "@mui/icons-material/SaveOutlined";
 import DescriptionTwoToneIcon from "@mui/icons-material/DescriptionTwoTone";
 
 import { useState } from "react";
-import UploadDialog from "./UploadDialog";
+// import UploadDialog from "./UploadDialog";
 import ApiClient from "../../services/apiClient";
 
 const PolicyGenerator = () => {
@@ -26,9 +26,10 @@ const PolicyGenerator = () => {
   const [templateData, setTemplateData] = useState("");
   const [isEditTemplateData, setIsEditTemplateData] = useState(false);
 
-  const [isUploadDialogOpen, setIsUploadDialogOpen] = useState(false);
-  const [selectedCloud, setSelectedCloud] = useState("");
-  const [selectedAccount, setSelectedAccount] = useState("");
+  const [_, setIsUploadDialogOpen] = useState(false);
+  // const [isUploadDialogOpen, setIsUploadDialogOpen] = useState(false);
+  // const [selectedCloud, setSelectedCloud] = useState("");
+  // const [selectedAccount, setSelectedAccount] = useState("");
 
   // console.log("prompt out", prompt);
 

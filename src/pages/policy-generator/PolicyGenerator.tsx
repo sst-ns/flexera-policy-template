@@ -85,6 +85,9 @@ const PolicyGenerator = () => {
         variant="outlined"
         placeholder="Describe the policy you want to create..."
         fullWidth
+        multiline
+        minRows={1}
+        maxRows={11}
         required
       />
       <Button
@@ -184,16 +187,35 @@ const PolicyGenerator = () => {
               onChange={(e) => setTemplateData(e.target.value)}
               slotProps={{ input: { readOnly: !isEditTemplateData } }}
               sx={{
-                bgcolor: "whitesmoke",
-                fontFamily: "'Courier New', Courier, monospace",
-                fontSize: "14px",
-                lineHeight: 1.5,
-                whiteSpace: "pre-wrap", // preserves line breaks from API
+                maxHeight: 600,
+                overflowY: "auto",
+                borderRadius: 2,
+
                 "& .MuiOutlinedInput-root": {
-                  "& fieldset": {
+                  bgcolor: isEditTemplateData ? "#fff" : "#fafafa",
+                  borderRadius: 2,
+                  fontFamily: "'Courier New', Courier, monospace",
+                  fontSize: "14px",
+                  lineHeight: 1.6,
+                  whiteSpace: "pre-wrap",
+                  transition: "all 0.3s ease",
+                  boxShadow: isEditTemplateData
+                    ? "0 0 0 2px rgba(138, 43, 226, 0.2)"
+                    : "none",
+                  "&:hover fieldset": {
                     borderColor: isEditTemplateData
                       ? "primary.main"
-                      : "rgba(0, 0, 0, 0.1)",
+                      : "#bdbdbd",
+                  },
+                  "& fieldset": {
+                    borderWidth: 1.5,
+                    borderColor: isEditTemplateData
+                      ? "primary.main"
+                      : "rgba(0, 0, 0, 0.15)",
+                  },
+                  "&.Mui-focused fieldset": {
+                    borderColor: "primary.dark",
+                    borderWidth: 2,
                   },
                 },
               }}
@@ -201,14 +223,14 @@ const PolicyGenerator = () => {
           )}
         </Box>
       )}
-      <UploadDialog
+      {/* <UploadDialog
         isOpen={isUploadDialogOpen}
         onClose={() => setIsUploadDialogOpen(false)}
         selectedCloud={selectedCloud}
         setSelectedCloud={setSelectedCloud}
         selectedAccount={selectedAccount}
         setSelectedAccount={setSelectedAccount}
-      />
+      /> */}
     </Box>
   );
 };

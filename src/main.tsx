@@ -5,6 +5,7 @@ import App from "./App.tsx";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme/theme.ts";
 import { CssBaseline } from "@mui/material";
+import { Toaster } from "react-hot-toast";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -12,5 +13,6 @@ createRoot(document.getElementById("root")!).render(
       <CssBaseline />
       <App />
     </ThemeProvider>
+    <Toaster />
   </StrictMode>
 );

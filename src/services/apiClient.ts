@@ -11,6 +11,7 @@ const lambdaClient = new LambdaClient({
 
 const LAMBDA_ENDPOINTS = {
   lambda_FTG_integrationlambda: "FTG_IntegrationLambda",
+  lambda_FTG_fpt_runner: "FTG-fpt-runner",
   default: "",
 };
 
@@ -53,12 +54,12 @@ const ApiClient = {
         // console.log("Response", response);
         if (!response.Payload) return null;
         const decoded = new TextDecoder().decode(response.Payload);
-        console.log(`[LAMBDA decoded RESPONSE] ${functionName}:`, decoded);
+        // console.log(`[LAMBDA decoded RESPONSE] ${functionName}:`, decoded);
         return JSON.parse(decoded);
       } else {
         // Normal HTTP post
         const response = await axios.post(functionName, data, { headers });
-        console.log(`[NORMAL POST RESPONSE] ${functionName}:`, response.data);
+        // console.log(`[NORMAL POST RESPONSE] ${functionName}:`, response.data);
 
         return response.data;
       }
